@@ -1,12 +1,12 @@
-import TodoList from './components/TodoList';
-import AddTodoForm from './components/AddTodoForm';
+import TodoForm from './components/TodoForm';
+import Todos from './components/Todos';
 import 'tachyons'
 function App() {
   return (
-    <div className="pa3">
+    <div className="pa3 App">
       <h1 className="tc">Todo App</h1>
-      <AddTodoForm />
-      <TodoList />
+      <TodoForm />
+      <Todos />
     </div>
   );
 }
