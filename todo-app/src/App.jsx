@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 
 import TodoList from './components/TodoList';
 import AddTodoForm from './components/AddTodoForm';
@@ -7,7 +6,6 @@ import 'tachyons'
 import './App.css';
 
 function App() {
-
 
   return (
    
