@@ -1,7 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
-export const COMPLETED = 'COMPLETED'
 
 export const addTodo = (text) => ({
     type: ADD_TODO,
@@ -23,13 +22,7 @@ export const editTodo = (id,newText)=>({
         text:newText
     }
 })
-export const completeTodo = (id,text)=>({
-    type:COMPLETED,
-    payload: {
-        id: id,
-        text:text
-    }
-})
+
 function generateUniqueId() {
     return Math.random().toString(36).substr(2, 9);
 }

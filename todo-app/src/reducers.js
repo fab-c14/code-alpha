@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETED } from "./actions";
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO } from "./actions";
 
 const initialState = {
     todos: [
@@ -21,13 +21,9 @@ const reducer = (state = initialState, action) => {
         case EDIT_TODO:
             return {
                 ...state,
-                todos:state.todos.map(todo=>todo.id===action.payload.text.strike())
+                // logic for edit
             };
-        case COMPLETED:
-            return{
-                ...state,
-                todos:[...state.todos,action.payload.text.strike()]
-            }
+
         default:
             return state;
     }
