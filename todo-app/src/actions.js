@@ -23,10 +23,11 @@ export const editTodo = (id,newText)=>({
         text:newText
     }
 })
-export const completeTodo = (id)=>({
+export const completeTodo = (id,text)=>({
     type:COMPLETED,
     payload: {
-        id: id 
+        id: id,
+        text:text
     }
 })
 function generateUniqueId() {

@@ -1,8 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeTodo, editTodo, completeTodo } from '../actions'; // assuming you have these actions defined
-
 const Todos = () => {
+  const [newText,setNewText] = useState('')
   const todos = useSelector(state => state.todos);
   const dispatch = useDispatch();
 
@@ -14,8 +14,8 @@ const Todos = () => {
     dispatch(editTodo(id, newText));
   };
 
-  const handleComplete = (id) => {
-    dispatch(completeTodo(id));
+  const handleComplete = (id,text) => {
+    dispatch(completeTodo(id,text));
   };
 
   const renderTodos = () => {
@@ -25,7 +25,7 @@ const Todos = () => {
         {!todo.completed && (
           <>
             <button className="f6 link dim ph3 pv2 mb2 dib white bg-green" onClick={() => handleComplete(todo.id)}>Complete</button>
-            <button className="f6 link dim ph3 pv2 mb2 dib white bg-blue" onClick={() => handleEdit(todo.id)}>Edit</button>
+            <button className="f6 link dim ph3 pv2 mb2 dib white bg-blue" onClick={() => handleEdit(todo.id,todo.text)}>Edit</button>
           </>
         )}
         <button className="f6 link dim ph3 pv2 mb2 dib white bg-red" onClick={() => handleRemove(todo.id)}>Delete</button>

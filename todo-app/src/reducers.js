@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO } from "./actions";
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETED } from "./actions";
 
 const initialState = {
     todos: [
@@ -16,15 +16,18 @@ const reducer = (state = initialState, action) => {
         case REMOVE_TODO:
             return {
                 ...state,
-                todos: state.todos.filter(todo => todo.id !== action.payload.id) // Access payload ID
+                todos: state.todos.filter(todo => todo.id !== action.payload.id) 
             };
         case EDIT_TODO:
             return {
                 ...state,
-                todos: state.todos.map(todo =>
-                    todo.id === action.payload.id ? { ...todo, text: action.payload.text } : todo
-                )
+                todos:state.todos.map(todo=>todo.id===action.payload.text.strike())
             };
+        case COMPLETED:
+            return{
+                ...state,
+                todos:[...state.todos,action.payload.text.strike()]
+            }
         default:
             return state;
     }
